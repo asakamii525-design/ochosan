@@ -14,9 +14,11 @@
 .course-card{background:var(--bg);padding:3rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start;transition:background 0.3s}
 .course-card:hover{background:var(--surface)}
 .course-num{font-family:var(--en);font-style:italic;font-size:3.5rem;color:rgba(201,160,80,0.18);line-height:1;padding-top:0.3rem}
-.course-ttl{font-family:var(--serif);font-size:1.3rem;letter-spacing:0.15em;margin-bottom:0.8rem;font-weight:400}
+.course-ttl{font-family:var(--serif);font-size:1.3rem;letter-spacing:0.15em;margin-bottom:0.8rem;font-weight:400;line-height:1.7}
+.course-ttl-line{display:block;white-space:nowrap}
 .course-sub{font-family:var(--sans);font-size:0.78rem;font-weight:300;letter-spacing:0.05em;color:var(--muted);display:block;margin-top:0.4rem;margin-bottom:0.8rem}
-.course-body{font-size:1rem;color:var(--muted);line-height:2;letter-spacing:0.04em}
+.course-body{font-size:1rem;color:var(--text);line-height:2;letter-spacing:0.04em}
+.course-body-muted{font-size:1rem;color:var(--muted);line-height:2;letter-spacing:0.04em}
 .course-badge{display:inline-block;margin-top:1.2rem;font-size:0.65rem;letter-spacing:0.15em;color:var(--gold);border:1px solid rgba(201,160,80,0.3);padding:0.3rem 0.9rem}
 .other-events{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
 .event-card{background:var(--surface);border:1px solid var(--border);padding:2.5rem;transition:border-color 0.3s}
@@ -24,7 +26,7 @@
 .event-tag{font-size:0.65rem;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.8rem;display:block}
 .event-ttl{font-family:var(--serif);font-size:1.1rem;letter-spacing:0.15em;margin-bottom:0.8rem}
 .event-body{font-size:0.98rem;color:var(--muted);line-height:2}
-@media(max-width:900px){.course-card{grid-template-columns:1fr;gap:1rem}.other-events{grid-template-columns:1fr}.goma-first{padding:2rem 1.5rem}}
+@media(max-width:900px){.course-card{grid-template-columns:1fr;gap:1rem}.course-ttl-line{white-space:normal}.other-events{grid-template-columns:1fr}.goma-first{padding:2rem 1.5rem}}
 </style></head><body>
 <nav id="nav"><a href="index.html" class="nav-logo"><span class="nav-logo-jp">湊宮月蝶院</span><span class="nav-logo-en">Getchoji Temple</span></a><ul class="nav-menu" id="navMenu"><li><a href="about.html" class="">月蝶院とは</a></li><li><a href="priest.html" class="">住職紹介</a></li><li><a href="menu.html" class="">メニュー</a></li><li><a href="events.html" class="active">講座・イベント</a></li><li><a href="blog.html" class="">ブログ</a></li><li><a href="contact.html" class="">お問い合わせ</a></li></ul><div class="nav-right"><a href="https://lin.ee/fE22BRP" class="nav-line" target="_blank">LINE</a><button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('open')"><span></span><span></span><span></span></button></div></nav>
 <div class="page-hero">
@@ -39,13 +41,15 @@
   <div class="reveal"><div class="label">Courses</div><h2 class="ttl">講座</h2></div>
   <div class="courses reveal">
 
-    <!-- ======= 01 差し替え ======= -->
+    <!-- ======= 01 ======= -->
     <div class="course-card">
       <div class="course-num">01</div>
       <div>
-        <h3 class="course-ttl">笑って死ぬ人になろう講座(ベーシック理論編)</h3>
+        <h3 class="course-ttl">
+          <span class="course-ttl-line">笑って死ぬ人になる講座</span>
+          <span class="course-ttl-line">（ベーシック理論編）</span>
+        </h3>
         <span class="course-sub">— 傷のせいで繰り返してしまう思考や行動のクセに気づいて、変えていく —</span>
-
         <p class="course-body">
           同じことで何回も傷つく。人間関係で同じパターンを繰り返す。頭では分かってるのに、やめられへん。「大丈夫なふり」が当たり前になってる。<br><br>
           それ、性格じゃなくて"傷からできたクセ"かもしれへん。私もずっとそうやった。<br><br>
@@ -56,25 +60,28 @@
           笑って死ぬって、最後だけの話ちゃうねん。今の生き方の延長線やと思ってる。だからこの講座は、"今の自分で、生きやすくなる"ためのスタートライン。<br><br>
           笑いもあるし、泣く人もおる。でも最後は、だいたいみんなスッキリして帰る。そんな講座です。
         </p>
-        
       </div>
     </div>
     <!-- ======= /01 ======= -->
 
+    <!-- ======= 02 ======= -->
     <div class="course-card">
       <div class="course-num">02</div>
       <div>
-        <h3 class="course-ttl">笑って死ぬ人になろう講座〈アドバンス実践編〉</h3>
-        <p class="course-body">頭で理解した世界に、実際に足を踏み入れる実践の時間です。一度習得すれば一生自分のものになる実践。<br><br>密教の瞑想・自己浄化の儀式・三密行の体験、イマジネーションの力、心理学・ヒーリングのワークまで——仏教・心理学・ヒーリング、すべての叡智がここに詰まっています。<br><br>恋愛、結婚、仕事、才能、使命、ビジネス、お金、豊かさ、健康、心身のバランス、家族・親子関係、人間関係、自己肯定感、本来の自己、魂のもつ使命——ここで学ぶ実践は、あなたの人生のどの場面にも対応できます。<br><br>理論編で地図を手に入れ、実践編でその地図を手に、今ここから自分の足で踏み出します。</p>
-        
+        <h3 class="course-ttl">
+          <span class="course-ttl-line">笑って死ぬ人になろう講座</span>
+          <span class="course-ttl-line">〈アドバンス実践編〉</span>
+        </h3>
+        <p class="course-body">頭で理解した世界に、実際に足を踏み入れる実践の時間です。一度習得すれば一生自分のものになる実践。<br><br>密教の瞑想・自己浄化の儀式・三密行の体験、イマジネーションの力、心理学・ヒーリングのワークまで——仏教・心理学・ヒーリング、すべての叡智がここに詰まっています。<br><br>恋愛、結婚、仕事、才能、使命、ビジネス、お金、豊かさ、健康、心身のバランス、家族・親子関係、人間関係、自己肯定感、本来の自己、魂のもつ使命——ここで学ぶ実践は、あなたの人生のどの場面にも対応できます。<br><br>理論編で地図を手に入れ、実践編でその地図を手に、今ここから自分の足で踏み出していきます。</p>
       </div>
     </div>
+    <!-- ======= /02 ======= -->
+
     <div class="course-card">
       <div class="course-num">03</div>
       <div>
-        <h3 class="course-ttl">死に方宣言セミナー</h3>
-        <p class="course-body">新しい終活のかたち。他にはないエンディングノートも使いながら"どう死にたいか"を妄想する会です。自分で死に方描くことで、生き方が見えたり。笑いながらあーだこーだと死を語る、そんな会です。</p>
-        
+        <h3 class="course-ttl"><span class="course-ttl-line">死に方宣言セミナー</span></h3>
+        <p class="course-body-muted">新しい終活のかたち。他にはないエンディングノートも使いながら"どう死にたいか"を妄想する会です。自分で死に方描くことで、生き方が見えたり。笑いながらあーだこーだと死を語る、そんな会です。</p>
       </div>
     </div>
   </div>
