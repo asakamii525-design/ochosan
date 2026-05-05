@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>笑って死ぬ人になろう講座〈ベーシック理論編〉— 湊宮月蝶院</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a08;--bg2:#111109;--bg3:#161610;
+  --border:rgba(168,255,62,0.15);--border2:rgba(168,255,62,0.08);--border3:rgba(168,255,62,0.04);
+  --text:#f0f0e8;--muted:#88887a;
+  --lime:#a8ff3e;--lime2:#c8ff7a;
+  --lime-bg:rgba(168,255,62,0.06);--lime-bg2:rgba(168,255,62,0.03);
+  --serif:'Shippori Mincho B1',serif;--sans:'Noto Sans JP',sans-serif;--en:'Cormorant Garamond',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:500;line-height:2;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s}
+nav.scrolled{background:rgba(10,10,8,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2)}
+.nav-logo{text-decoration:none}
+.nav-logo-jp{font-family:var(--serif);font-size:0.88rem;letter-spacing:0.3em;color:var(--text);display:block}
+.nav-logo-en{font-family:var(--en);font-style:italic;font-size:0.6rem;letter-spacing:0.18em;color:var(--lime);display:block}
+.nav-cta{font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.15em;color:var(--bg);background:var(--lime);padding:0.55rem 1.4rem;text-decoration:none;transition:all 0.3s}
+.nav-cta:hover{background:var(--lime2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:10rem 4rem 7rem;text-align:center}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(168,255,62,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(168,255,62,0.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-glow{position:absolute;top:60%;left:50%;transform:translate(-50%,-50%);width:80vw;height:80vw;max-width:800px;max-height:800px;background:radial-gradient(circle,rgba(168,255,62,0.04) 0%,transparent 65%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--lime),transparent);opacity:0.6}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.hero-en{font-family:var(--en);font-style:italic;font-size:0.7rem;letter-spacing:0.32em;color:var(--lime);margin-bottom:2.5rem;display:flex;align-items:center;justify-content:center;gap:1rem;opacity:0;animation:up 0.8s ease 0.1s forwards}
+.hero-en::before,.hero-en::after{content:'';width:2.5rem;height:1px;background:var(--lime);opacity:0.4}
+.hero-ttl{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.8rem);font-weight:800;letter-spacing:0.1em;line-height:1.4;color:var(--text);margin-bottom:1.5rem;opacity:0;animation:up 0.8s ease 0.25s forwards}
+.hero-tagline{font-family:var(--serif);font-size:clamp(1rem,2vw,1.4rem);font-weight:600;letter-spacing:0.15em;color:var(--lime);margin-bottom:4rem;opacity:0;animation:up 0.8s ease 0.4s forwards}
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;opacity:0;animation:up 0.8s ease 0.55s forwards}
+.btn-lime{display:inline-flex;align-items:center;gap:0.6rem;background:var(--lime);color:var(--bg);font-family:var(--sans);font-size:0.88rem;font-weight:700;letter-spacing:0.12em;padding:1.1rem 2.8rem;text-decoration:none;transition:all 0.3s}
+.btn-lime:hover{background:var(--lime2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(168,255,62,0.2)}
+.btn-outline{color:rgba(240,240,232,0.45);font-family:var(--sans);font-size:0.78rem;font-weight:500;letter-spacing:0.15em;text-decoration:none;border-bottom:1px solid rgba(168,255,62,0.2);padding-bottom:2px;transition:all 0.3s}
+.btn-outline:hover{color:var(--lime);border-color:rgba(168,255,62,0.6)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);font-family:var(--en);font-style:italic;font-size:0.6rem;letter-spacing:0.28em;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:0.7rem}
+.hero-scroll::after{content:'';width:1px;height:3rem;background:linear-gradient(to bottom,var(--lime),transparent);opacity:0.4;animation:scrollAnim 2s ease-in-out infinite}
+
+/* LAYOUT */
+.sec{padding:9rem 4rem}
+.container{max-width:760px;margin:0 auto}
+.container-wide{max-width:1040px;margin:0 auto}
+.divider{height:1px;background:var(--border2);margin:0 4rem}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.on{opacity:1;transform:none}
+.label{font-family:var(--sans);font-size:0.62rem;font-weight:700;letter-spacing:0.32em;color:var(--lime);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem}
+.label::before{content:'';width:1.8rem;height:2px;background:var(--lime)}
+.label.center{justify-content:center}
+.label.center::before{display:none}
+.heading{font-family:var(--serif);font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:800;letter-spacing:0.1em;line-height:1.4;color:var(--text);margin-bottom:3rem}
+.body-txt{font-family:var(--sans);font-size:0.92rem;font-weight:500;letter-spacing:0.05em;line-height:2.1;color:rgba(240,240,232,0.72)}
+.body-txt strong{color:var(--text);font-weight:700}
+.body-txt em{color:var(--lime);font-style:normal;font-weight:700}
+
+/* ② 自分ごと化 */
+.hook-bg{background:var(--bg2)}
+.hook-question{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,2rem);font-weight:800;letter-spacing:0.1em;line-height:1.5;color:var(--text);margin-bottom:2.5rem}
+.hook-desc{font-family:var(--sans);font-size:0.92rem;font-weight:500;letter-spacing:0.05em;line-height:2.1;color:rgba(240,240,232,0.7);margin-bottom:3rem}
+.hook-desc strong{color:var(--text);font-weight:700}
+.hook-lines{border:1px solid var(--border2);margin-bottom:2.5rem}
+.hook-line{padding:1.8rem 2.5rem;border-bottom:1px solid var(--border2);font-family:var(--serif);font-size:clamp(1rem,1.8vw,1.2rem);font-weight:600;letter-spacing:0.08em;color:rgba(240,240,232,0.9);line-height:1.7}
+.hook-line:last-child{border-bottom:none}
+.hook-answer{font-family:var(--serif);font-size:clamp(1rem,1.8vw,1.2rem);font-weight:700;letter-spacing:0.1em;line-height:2;color:rgba(240,240,232,0.85)}
+.hook-answer em{color:var(--lime);font-style:normal}
+
+/* ③ 定義 */
+.def-bg{background:var(--bg)}
+.def-box{border-left:3px solid var(--lime);padding:3.5rem;background:var(--lime-bg2);margin-bottom:3rem}
+.def-intro{font-family:var(--sans);font-size:0.88rem;font-weight:500;letter-spacing:0.05em;color:var(--muted);line-height:2;margin-bottom:1.5rem}
+.def-word{font-family:var(--serif);font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:800;letter-spacing:0.12em;color:var(--lime);margin-bottom:1.5rem;line-height:1.4}
+.def-desc{font-family:var(--sans);font-size:0.9rem;font-weight:500;letter-spacing:0.05em;color:rgba(240,240,232,0.72);line-height:2.1}
+.def-desc strong{color:var(--text);font-weight:700}
+
+/* ④ 痛みの具体化 */
+.pain-bg{background:var(--bg2)}
+.pain-items{border:1px solid var(--border2);margin-bottom:2.5rem}
+.pain-item{padding:2rem 2.5rem;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:1.8rem;transition:background 0.3s}
+.pain-item:last-child{border-bottom:none}
+.pain-item:hover{background:var(--lime-bg)}
+.pain-dot{width:6px;height:6px;background:var(--lime);border-radius:50%;flex-shrink:0}
+.pain-txt{font-family:var(--sans);font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:var(--text);line-height:1.8}
+.pain-sub{font-family:var(--sans);font-size:0.82rem;font-weight:500;letter-spacing:0.04em;color:var(--muted);line-height:1.8;margin-top:0.4rem}
+.pain-result{font-family:var(--serif);font-size:clamp(1rem,1.7vw,1.15rem);font-weight:600;letter-spacing:0.1em;line-height:2;color:rgba(240,240,232,0.85)}
+.pain-result em{color:var(--lime);font-style:normal}
+
+/* ⑤ 問い */
+.question-bg{background:var(--bg3)}
+.question-box{text-align:center;padding:6rem 3rem;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2)}
+.question-txt{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.8rem);font-weight:800;letter-spacing:0.1em;line-height:1.6;color:var(--text)}
+.question-txt em{color:var(--lime);font-style:normal}
+
+/* ⑥ 核心 + 手法 */
+.core-bg{background:var(--bg2)}
+.method-box{border:1px solid var(--border);padding:3.5rem;margin-bottom:3rem;background:var(--lime-bg2)}
+.method-label{font-family:var(--sans);font-size:0.62rem;font-weight:700;letter-spacing:0.28em;color:var(--lime);text-transform:uppercase;margin-bottom:1.5rem}
+.method-ttl{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;letter-spacing:0.1em;color:var(--text);margin-bottom:1.5rem;line-height:1.6}
+.method-ttl em{color:var(--lime);font-style:normal}
+.method-body{font-family:var(--sans);font-size:0.9rem;font-weight:500;letter-spacing:0.05em;color:rgba(240,240,232,0.7);line-height:2.1}
+.method-body strong{color:var(--text);font-weight:700}
+.core-points{display:grid;gap:1px;background:var(--border2);border:1px solid var(--border2)}
+.core-point{background:var(--bg2);padding:2rem 2.5rem;display:flex;align-items:center;gap:1.8rem;transition:background 0.3s}
+.core-point:hover{background:var(--lime-bg)}
+.core-point-num{font-family:var(--en);font-style:italic;font-size:2.5rem;color:rgba(168,255,62,0.2);line-height:1;flex-shrink:0;width:3rem}
+.core-point-txt{font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:0.08em;color:var(--text);line-height:1.8}
+
+/* ⑦ 変化 */
+.change-bg{background:var(--bg)}
+.change-items{border:1px solid var(--border2);margin-bottom:2.5rem}
+.change-item{padding:2rem 2.5rem;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:1.8rem;transition:background 0.3s}
+.change-item:last-child{border-bottom:none}
+.change-item:hover{background:var(--lime-bg)}
+.change-item::before{content:'→';color:var(--lime);font-weight:700;flex-shrink:0}
+.change-txt{font-family:var(--sans);font-size:0.95rem;font-weight:500;letter-spacing:0.04em;color:var(--text);line-height:1.8}
+.change-close{font-family:var(--serif);font-size:clamp(1rem,1.7vw,1.15rem);font-weight:600;letter-spacing:0.1em;line-height:2;color:rgba(240,240,232,0.85)}
+.change-close em{color:var(--lime);font-style:normal}
+
+/* ⑧ 昇華 */
+.sub-bg{background:var(--bg2)}
+.sub-quote{padding:3.5rem;border:1px solid var(--border);margin-bottom:2.5rem;background:var(--lime-bg2)}
+.sub-quote-ja{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;letter-spacing:0.1em;line-height:2;color:var(--lime);margin-bottom:1.5rem}
+.sub-body{font-family:var(--sans);font-size:0.9rem;font-weight:500;letter-spacing:0.05em;color:rgba(240,240,232,0.72);line-height:2.1}
+.sub-body strong{color:var(--text);font-weight:700}
+.sub-body em{color:var(--lime);font-style:normal}
+
+/* ⑨ 特徴 */
+.feature-bg{background:var(--bg3)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border2);border:1px solid var(--border2)}
+.feature-card{background:var(--bg3);padding:2.5rem}
+.feature-card.yes{background:var(--lime-bg2)}
+.feature-badge{font-family:var(--sans);font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1.2rem}
+.feature-card:not(.yes) .feature-badge{color:var(--muted)}
+.feature-card.yes .feature-badge{color:var(--lime)}
+.feature-txt{font-family:var(--serif);font-size:clamp(0.95rem,1.6vw,1.1rem);font-weight:600;letter-spacing:0.08em;line-height:1.8}
+.feature-card:not(.yes) .feature-txt{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(168,255,62,0.3)}
+.feature-card.yes .feature-txt{color:var(--text)}
+.feature-card.yes .feature-txt em{color:var(--lime);font-style:normal}
+
+/* ⑩ 内容 */
+.service-bg{background:var(--bg2)}
+.service-items{display:grid;gap:1px;background:var(--border2);border:1px solid var(--border2)}
+.service-item{background:var(--bg2);padding:3rem 3.5rem;display:grid;grid-template-columns:60px 1fr;gap:2rem;align-items:start;transition:background 0.3s}
+.service-item:hover{background:var(--lime-bg)}
+.service-num{font-family:var(--en);font-style:italic;font-size:3.5rem;color:rgba(168,255,62,0.18);line-height:1}
+.service-ttl{font-family:var(--serif);font-size:1.1rem;font-weight:700;letter-spacing:0.1em;color:var(--lime);margin-bottom:0.6rem}
+.service-sub{font-family:var(--sans);font-size:0.88rem;font-weight:500;letter-spacing:0.04em;color:rgba(240,240,232,0.65);line-height:1.9}
+
+/* ⑪ 声 */
+.voice-bg{background:var(--bg)}
+.voice-grid{display:grid;gap:1px;background:var(--border2);border:1px solid var(--border2)}
+.voice-card{background:var(--bg);padding:3rem 3.5rem}
+.voice-q{font-family:var(--en);font-style:italic;font-size:4rem;color:rgba(168,255,62,0.12);line-height:1}
+.voice-txt{font-family:var(--sans);font-size:0.9rem;font-weight:500;color:rgba(240,240,232,0.8);line-height:2;letter-spacing:0.04em;margin-bottom:1.2rem}
+.voice-attr{font-size:0.7rem;font-weight:500;letter-spacing:0.18em;color:var(--muted);padding-top:1rem;border-top:1px solid var(--border2)}
+
+/* ⑫ 概要 + 限定性 */
+.detail-bg{background:var(--bg2)}
+.detail-table{width:100%;border-collapse:collapse}
+.detail-table tr{border-bottom:1px solid var(--border2)}
+.detail-table th{text-align:left;padding:1.8rem 1.5rem 1.8rem 0;font-family:var(--sans);font-size:0.62rem;font-weight:700;letter-spacing:0.25em;color:var(--lime);width:8rem;vertical-align:top;text-transform:uppercase}
+.detail-table td{padding:1.8rem 0;font-size:0.9rem;font-weight:500;color:rgba(240,240,232,0.8);line-height:2;letter-spacing:0.04em}
+.detail-limit{margin-top:2.5rem;padding:1.5rem 2rem;border:1px solid var(--border);background:var(--lime-bg2);font-family:var(--sans);font-size:0.85rem;font-weight:700;color:var(--lime);letter-spacing:0.08em;line-height:2;text-align:center}
+
+/* FAQ */
+.faq-list{border:1px solid var(--border2)}
+.faq-item{border-bottom:1px solid var(--border2)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{padding:1.8rem 2.5rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:var(--sans);font-size:0.95rem;font-weight:600;letter-spacing:0.04em;gap:1.5rem;line-height:1.7;color:var(--text)}
+.faq-icon{font-size:1.4rem;color:var(--lime);flex-shrink:0;transition:transform 0.3s;line-height:1}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a-inner{padding:0 2.5rem 1.8rem;font-size:0.88rem;font-weight:500;color:rgba(240,240,232,0.6);line-height:2;border-top:1px solid var(--border2);letter-spacing:0.04em}
+
+/* 結び */
+.ending-bg{background:var(--bg3)}
+.ending-quote{font-family:var(--serif);font-size:clamp(0.98rem,1.7vw,1.2rem);font-weight:600;letter-spacing:0.1em;line-height:2.2;color:rgba(240,240,232,0.85);padding:3.5rem;border:1px solid var(--border);margin-bottom:2.5rem}
+.ending-quote em{color:var(--lime);font-style:normal}
+.ending-body{font-family:var(--sans);font-size:0.88rem;font-weight:500;color:var(--muted);line-height:2;letter-spacing:0.05em;text-align:center}
+
+/* ⑬⑭ CTA */
+.cta-sec{background:var(--bg);text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(168,255,62,0.05) 0%,transparent 65%);pointer-events:none}
+.cta-inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
+.cta-push{margin-bottom:5rem;padding:4rem 2rem;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2)}
+.cta-push-small{font-family:var(--sans);font-size:0.88rem;font-weight:500;color:var(--muted);line-height:2;margin-bottom:2.5rem;letter-spacing:0.05em}
+.cta-push-choice{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:0.12em;line-height:1.5;color:var(--text);margin-bottom:1.2rem}
+.cta-push-you{font-family:var(--serif);font-size:0.95rem;font-weight:700;letter-spacing:0.22em;color:var(--lime)}
+.cta-deco{width:1px;height:4rem;background:linear-gradient(to bottom,transparent,var(--lime));margin:0 auto 3rem;opacity:0.5}
+.cta-ttl{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;letter-spacing:0.15em;color:var(--text);margin-bottom:3rem;line-height:1.3}
+.cta-btns{display:flex;flex-direction:column;gap:1rem;align-items:center}
+.btn-cta-a{display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;background:var(--lime);color:var(--bg);font-family:var(--sans);font-size:0.92rem;font-weight:700;letter-spacing:0.12em;padding:1.2rem 3rem;text-decoration:none;transition:all 0.3s;width:100%;max-width:480px}
+.btn-cta-a:hover{background:var(--lime2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(168,255,62,0.2)}
+.btn-cta-b{display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;background:transparent;color:var(--lime);font-family:var(--sans);font-size:0.82rem;font-weight:600;letter-spacing:0.12em;padding:0.9rem 2.5rem;text-decoration:none;border:1px solid var(--border);transition:all 0.3s;width:100%;max-width:480px}
+.btn-cta-b:hover{background:var(--lime-bg);border-color:var(--lime)}
+.cta-note{font-size:0.75rem;color:var(--muted);letter-spacing:0.08em;margin-top:2rem;line-height:2;font-weight:500}
+.cta-note a{color:var(--lime);text-decoration:none}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border2);padding:3rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.footer-logo-jp{font-family:var(--serif);font-size:0.88rem;letter-spacing:0.3em;color:var(--text)}
+.footer-logo-en{font-family:var(--en);font-style:italic;font-size:0.6rem;letter-spacing:0.15em;color:var(--lime)}
+.footer-copy{font-size:0.68rem;color:var(--muted);font-weight:500}
+
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes scrollAnim{0%,100%{opacity:0.4}50%{opacity:0.9}}
+
+@media(max-width:768px){
+  nav,nav.scrolled{padding:1rem 1.2rem}
+  .hero{padding:6.5rem 1.4rem 4rem;min-height:auto}
+  .hero-ttl{font-size:1.7rem;letter-spacing:0.06em}
+  .hero-tagline{font-size:1rem;margin-bottom:3rem}
+  .hero-btns{flex-direction:column;align-items:center;gap:1.2rem}
+  .btn-lime{width:100%;justify-content:center}
+  .hero-scroll{display:none}
+  .sec{padding:5.5rem 1.4rem}
+  .divider{margin:0 1.4rem}
+  .heading{font-size:1.6rem;letter-spacing:0.08em;margin-bottom:2.5rem}
+  .hook-question{font-size:1.3rem}
+  .hook-line{padding:1.5rem 1.4rem;font-size:1rem}
+  .def-box,.method-box{padding:2rem 1.4rem}
+  .pain-item,.change-item,.core-point{padding:1.6rem 1.4rem;gap:1rem}
+  .question-box{padding:4rem 1.4rem}
+  .question-txt{font-size:1.4rem}
+  .feature-grid{grid-template-columns:1fr}
+  .sub-quote{padding:2rem 1.4rem}
+  .ending-quote{padding:2.5rem 1.4rem;font-size:0.95rem}
+  .service-item{padding:2rem 1.4rem;grid-template-columns:1fr;gap:0.8rem}
+  .service-num{font-size:2.5rem}
+  .voice-card{padding:2rem 1.4rem}
+  .faq-q{padding:1.4rem 1.2rem;font-size:0.92rem}
+  .faq-a-inner{padding:0 1.2rem 1.4rem}
+  .cta-push{padding:3rem 0}
+  .cta-push-choice{font-size:1.5rem}
+  .cta-ttl{font-size:1.8rem}
+  .btn-cta-a,.btn-cta-b{font-size:0.85rem;padding:1rem 1.5rem}
+  footer{flex-direction:column;text-align:center;padding:2.5rem 1.4rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-jp">湊宮月蝶院</span>
+    <span class="nav-logo-en">Getchoji Temple</span>
+  </a>
+  <a href="#cta" class="nav-cta">申し込む →</a>
+</nav>
+
+<!-- ① フック -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-en">Course 01 — Basic Theory</div>
+    <h1 class="hero-ttl">「あぁ、面白かった！」と言って、<br>死ねますか？</h1>
+    <p class="hero-tagline">人生全部、ネタでした。</p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-lime">講座の詳細・お申し込みはこちら →</a>
+      <a href="#detail" class="btn-outline">詳細を見る</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ② 自分ごと化 -->
+<section class="sec hook-bg">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">For you</div>
+      <h2 class="hook-question">その選択、本当に<br>「あなた」が決めていますか？</h2>
+    </div>
+    <div class="hook-desc reveal">
+      「今日の服」「明日の予定」「仕事の進め方」——。<br>
+      自分で決めているつもりでも、実は<strong>「過去の失敗」や「他人の目」</strong>という見えない脚本家に、選ばされていませんか？
+    </div>
+    <div class="hook-lines reveal">
+      <div class="hook-line">なぜか、うまくいかない。</div>
+      <div class="hook-line">同じようなことでつまずく。</div>
+      <div class="hook-line">頑張っているのに、報われない。</div>
+    </div>
+    <div class="hook-answer reveal">
+      その原因は、あなたが無意識に身につけた<br>
+      <em>思考と行動のクセ</em>にあります。
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ③ 定義 -->
+<section class="sec def-bg">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Definition</div>
+      <h2 class="heading">そのクセに、<br>名前をつけます。</h2>
+    </div>
+    <div class="def-box reveal">
+      <div class="def-intro">この講座では、そのクセを——</div>
+      <div class="def-word">「偽りの脚本」と呼びます。</div>
+      <div class="def-desc">
+        人は誰でも、自分を守るために<strong>「仮面」</strong>をかぶります。<br>
+        そしてその仮面を演じ続けるために、無意識のうちに「偽りの脚本」を書いている。<br>
+        その脚本通りに生きてしまっているから、つらいのです。<br><br>
+        <strong>これは特別なことではありません。気づいていないだけで、誰にでもあります。</strong><br><br>
+        これは悪意ではなく、非力だった頃のあなたが自分を守るために必死に編み出した<strong>「生存戦略」</strong>です。<br>
+        あまりに自分と一体化しているため、そもそも自分一人ではそのクセにすら気づけません。
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ④ 痛みの具体化 -->
+<section class="sec pain-bg">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Your mask</div>
+      <h2 class="heading">あなたがかぶっている<br>仮面はどれですか？</h2>
+    </div>
+    <div class="pain-items reveal">
+      <div class="pain-item">
+        <span class="pain-dot"></span>
+        <div>
+          <p class="pain-txt">「しっかり者」でいようとする</p>
+          <p class="pain-sub">本当は休みたいのに、「私がやらなきゃ」が止まらない。</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <span class="pain-dot"></span>
+        <div>
+          <p class="pain-txt">「物わかりの良い人」を演じる</p>
+          <p class="pain-sub">言いたいことがあっても、波風立てないよう笑顔でいる。</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <span class="pain-dot"></span>
+        <div>
+          <p class="pain-txt">「常識的であろう」とする</p>
+          <p class="pain-sub">自分の感覚より「普通はこうでしょ」が先に出てくる。</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <span class="pain-dot"></span>
+        <div>
+          <p class="pain-txt">「デキる人」でいようとする</p>
+          <p class="pain-sub">「知らない」と言えず、虚勢や知ったかぶりマウントが止まらない。</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <span class="pain-dot"></span>
+        <div>
+          <p class="pain-txt">「かわいそうな私」でいることで、挑戦を避ける</p>
+          <p class="pain-sub">うまくいかないのは環境や過去のせい、と思っている。</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <span class="pain-dot"></span>
+        <div>
+          <p class="pain-txt">「現実を見ない」ことで、やり過ごす</p>
+          <p class="pain-sub">考えたくないことは後回し。気づけば大事なことから逃げ続けている。</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <span class="pain-dot"></span>
+        <div>
+          <p class="pain-txt">無理にポジティブを演じる</p>
+          <p class="pain-sub">しんどくても「大丈夫！」が口癖。ネガティブな感情を感じること自体を許せない。</p>
+        </div>
+      </div>
+    </div>
+    <div class="pain-result reveal">
+      その結果、本来の感覚や選択が、<em>少しずつズレていきます。</em>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑤ 問い -->
+<section class="sec question-bg">
+  <div class="container">
+    <div class="question-box reveal">
+      <div class="question-txt">
+        それは、本当に<br><em>「あなたの意思」</em>でしょうか？
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑥ 核心 + 手法 -->
+<section class="sec core-bg">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Method</div>
+      <h2 class="heading">仏教と心理学の観点から、<br>仕組みとして解剖する。</h2>
+    </div>
+    <div class="method-box reveal">
+      <div class="method-label">この講座のやり方</div>
+      <div class="method-ttl">感覚や直感に頼るのではなく、<em>仏教と心理学の観点から</em>あなたの「偽りの脚本」を仕組みとして解剖していきます。</div>
+      <div class="method-body">
+        なぜその演出が必要だったのか。なぜその出来事が起きたのか。<br>
+        <strong>感情論ではなくロジックとして理解するからこそ、受講後も一生、自分自身で分析し、人生を修正できるようになります。</strong>
+      </div>
+    </div>
+    <div class="core-points reveal">
+      <div class="core-point">
+        <div class="core-point-num">01</div>
+        <div class="core-point-txt">うまくいかない原因に気づく</div>
+      </div>
+      <div class="core-point">
+        <div class="core-point-num">02</div>
+        <div class="core-point-txt">無意識にしていた選び方を言語化する</div>
+      </div>
+      <div class="core-point">
+        <div class="core-point-num">03</div>
+        <div class="core-point-txt">自分でも分析できるようになる</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑦ 変化 -->
+<section class="sec change-bg">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Change</div>
+      <h2 class="heading">受講することで、<br>こう変わります。</h2>
+    </div>
+    <div class="change-items reveal">
+      <div class="change-item"><p class="change-txt">うまくいかない原因がわかる</p></div>
+      <div class="change-item"><p class="change-txt">無意識にしていた選び方に気づく</p></div>
+      <div class="change-item"><p class="change-txt">毎回違う問題に見えていたものが、同じ構造・同じクセだったとわかる</p></div>
+      <div class="change-item"><p class="change-txt">バラバラに見えていた悩みが、一本の流れだったと見えてくる</p></div>
+    </div>
+    <div class="change-close reveal">
+      その結果、<br>
+      場面ごとにどう動くかがはっきりし、<br>
+      迷わず選べるようになる。<br><br>
+      <em>そうして初めて、自分の力が、まっすぐ使われるようになります。</em>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑧ 昇華 -->
+<section class="sec sub-bg">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Insight</div>
+      <h2 class="heading">嫌っていたクセが、<br>「愛しいネタ」に変わる。</h2>
+    </div>
+    <div class="sub-quote reveal">
+      <div class="sub-quote-ja">「あの時の私は、こうして必死に私を守ろうとしてくれていたんだ」</div>
+      <div class="sub-body">
+        そう思えたとき、苦しみもトラウマも、すべては最後の一頁で大爆笑するための<em>「最高のネタ（伏線）」</em>へと姿を変えます。<br><br>
+        これまでの違和感や苦しさも、すべては意味のある流れだったと気づく。<br>
+        「なんだ、そういうことだったのか」<br>
+        そうやって、自分の人生を引き受けられるようになります。<br><br>
+        自分を責めるエネルギーが、自分を愛でる力に変わる。<br>
+        この<strong>「全肯定の笑い」</strong>が、あなたを縛っていた呪縛を解きます。
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑨ 特徴 -->
+<section class="sec feature-bg">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Feature</div>
+      <h2 class="heading">この講座は、<br>こういうものです。</h2>
+    </div>
+    <div class="feature-grid reveal">
+      <div class="feature-card">
+        <div class="feature-badge">× Not this</div>
+        <div class="feature-txt">知識を増やすためのもの</div>
+      </div>
+      <div class="feature-card yes">
+        <div class="feature-badge">○ This</div>
+        <div class="feature-txt">現実の<em>「見え方」</em>と、<em>「選び方」</em>を変えるためのもの</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑩ 内容 -->
+<section class="sec service-bg">
+  <div class="container-wide">
+    <div class="reveal container">
+      <div class="label">Content</div>
+      <h2 class="heading">講座の内容</h2>
+    </div>
+    <div class="service-items reveal">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div>
+          <div class="service-ttl">基礎理論編</div>
+          <div class="service-sub">思考と行動のクセの仕組みを理解する<br>全2回 ／ 合計約4時間</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div>
+          <div class="service-ttl">応用実践編</div>
+          <div class="service-sub">気づきを現実に落とし込み、行動を変える<br>全2回 ／ 合計約4時間</div>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div>
+          <div class="service-ttl">個別Zoomセッション</div>
+          <div class="service-sub">あなたのパターンを言語化し、具体的な選択に落とし込む<br>60分</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑪ 声 -->
+<section class="sec voice-bg">
+  <div class="container-wide">
+    <div class="reveal container">
+      <div class="label">Voice</div>
+      <h2 class="heading">受講された方の声</h2>
+    </div>
+    <div class="voice-grid reveal">
+      <div class="voice-card">
+        <div class="voice-q">"</div>
+        <p class="voice-txt">同じことで悩まなくなりました。</p>
+        <div class="voice-attr">30代女性 / 会社員</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-q">"</div>
+        <p class="voice-txt">自分のクセが初めて分かりました。</p>
+        <div class="voice-attr">40代男性 / 自営業</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-q">"</div>
+        <p class="voice-txt">人との関係がラクになりました。</p>
+        <div class="voice-attr">20代女性 / フリーランス</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑫ 概要 + 限定性 -->
+<section class="sec detail-bg" id="detail">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Detail</div>
+      <h2 class="heading">開催概要</h2>
+    </div>
+    <div class="reveal">
+      <table class="detail-table">
+        <tr><th>開催方法</th><td>オンライン（Zoom）/ 対面</td></tr>
+        <tr><th>日時</th><td>※開催日時を記入してください</td></tr>
+        <tr><th>定員</th><td>少人数制</td></tr>
+        <tr><th>受講料</th><td>※○,○○○円（税込）</td></tr>
+        <tr><th>持ち物</th><td>筆記用具、メモ帳</td></tr>
+      </table>
+      <div class="detail-limit">少人数での開催のため、定員に達し次第締め切ります。</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">FAQ</div>
+      <h2 class="heading">よくある質問</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">仏教や宗教的な知識がなくても大丈夫ですか？<div class="faq-icon">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">まったく問題ありません。特定の宗教的知識は必要なく、心理学と仏教の視点をわかりやすくお伝えします。初めての方がほとんどです。</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">一人で参加しても大丈夫ですか？<div class="faq-icon">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">はい、お一人でのご参加が多いです。少人数制で安心できる雰囲気を大切にしています。</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">「応用実践編」との違いは？<div class="faq-icon">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">基礎理論編は、自分の無意識のパターンを「理解する」ための講座です。応用実践編はその理解を現実の行動に落とし込む応用編で、基礎理論編受講後の方が対象です。</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">キャンセルはできますか？<div class="faq-icon">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">※キャンセルポリシーをここに記載してください。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 結び -->
+<section class="sec ending-bg">
+  <div class="container">
+    <div class="reveal">
+      <div class="label center" style="margin-bottom:3rem">The ending</div>
+    </div>
+    <div class="ending-quote reveal">
+      人生の幕が下りるその瞬間、<br><br>
+      「あの演出も、あの苦しみも、すべて意味があった。<br>
+      本当に面白い人生だった！」<br><br>
+      <em>自分の物語に、スタンディングオベーションを送りながら、笑って死ぬ。</em>
+    </div>
+    <div class="ending-body reveal">
+      そのための準備を、ここから始めましょう。
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ⑬ クロージング + ⑭ CTA -->
+<section class="sec cta-sec" id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-inner reveal">
+    <div class="cta-pre reveal" style="margin-bottom:4rem;padding:3rem 2rem;border-top:1px solid var(--border2)">
+      <p style="font-family:var(--serif);font-size:clamp(1rem,1.8vw,1.25rem);font-weight:600;letter-spacing:0.1em;line-height:2.2;color:rgba(240,240,232,0.85);margin-bottom:1.5rem">
+        ここまで読んで、<br>
+        少しでも「自分のことかもしれない」と感じたなら——<br>
+        それは、もう気づきは始まっています。
+      </p>
+      <p style="font-family:var(--sans);font-size:0.92rem;font-weight:500;letter-spacing:0.05em;line-height:2;color:var(--muted)">
+        ただ、<strong style="color:var(--text)">気づくだけでは現実は変わりません。</strong>
+      </p>
+    </div>
+    <div class="cta-push">
+      <div class="cta-push-small">ここまで読んでいるということは、<br>もう気づいているはずです。</div>
+      <div class="cta-push-choice">変わらないままでいるか、<br>ここで変えるか。</div>
+      <div class="cta-push-you">選ぶのは、あなたです。</div>
+    </div>
+    <div class="cta-deco"></div>
+    <h2 class="cta-ttl">あなたの物語を、<br>ここから書き換える。</h2>
+    <div class="cta-btns">
+      <a href="https://forms.gle/XXXXXXXXXXXXXXXX" target="_blank" class="btn-cta-a">講座の詳細・お申し込みはこちら →</a>
+      <a href="https://forms.gle/XXXXXXXXXXXXXXXX" target="_blank" class="btn-cta-b">今の自分を変えたい方はこちら →</a>
+    </div>
+    <p class="cta-note">ご不明な点は <a href="https://lin.ee/fE22BRP" target="_blank">公式LINE</a> よりお気軽にどうぞ。</p>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo-jp">湊宮月蝶院</div>
+    <div class="footer-logo-en">Getchoji Temple</div>
+  </div>
+  <div class="footer-copy">© 2026 湊宮月蝶院 All Rights Reserved.</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:0.08}).observe(el)});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>q.parentElement.classList.toggle('open'))});
+</script>
+</body>
+</html>
